@@ -1,3 +1,3 @@
 #pragma once
 
-double mysqrt(double x);
+double funnySqrt(double x);
