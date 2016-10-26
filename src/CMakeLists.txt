@@ -40,26 +40,9 @@ target_link_libraries(CMakeDemo ${EXTRA_LIBS})
 install(TARGETS CMakeDemo DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/Config.h" DESTINATION include)
 
-# Run tests.cmake as a module to this CMakeLists.txt file.
-include(tests.cmake)
-
-# Set up tests. 
-#include(CTest)
- 
-# Does the application run?
-#add_test(CMakeDemo-Runs CMakeDemo 25) 
-
-# Does the usage message work?
-#add_test(CMakeDemo-Usage CMakeDemo)
-#set_tests_properties(CMakeDemo-Usage PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number")
-
-# Define a macro to simplify adding tests.
-#macro(do_test name arg result)
-#	add_test(CMakeDemo-${name} CMakeDemo ${arg})
-#	set_tests_properties(CMakeDemo-${name} PROPERTIES PASS_REGULAR_EXPRESSION ${result})
-#endmacro(do_test)
-
-# Use the macro to add 3 more tests.
-#do_test(25 25 "25 is 5")
-#do_test("Negative" -25 "-25 is 0")
-#do_test("Small" 0.0001 "0.0001 is 0.01")
+# Now we want to run tests.cmake as a module to this CMakeLists.txt file. We could  
+# do this with an explicit "include(tests.cmake)" call, but instead, we'll append  
+# the directory where it lives to the CMAKE_MODULE_PATH variable. This allows us to    
+# include "tests", since CMake will automatically look for .cmake files. 
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
+include(tests)
