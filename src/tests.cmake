@@ -30,5 +30,5 @@ endmacro()
 
 # Use the macro to add 3 more tests.
 doTest(25 25 "25 is 5")
-doTest("Negative" -25 "-25 is 0")
+# doTest("Negative" -25 "-25 is 0")
 doTest("Small" 0.0001 "0.0001 is 0.01")

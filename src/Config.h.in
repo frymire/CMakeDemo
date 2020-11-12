@@ -1,6 +1,6 @@
 // Settings to be passed from CMake via a configure_file call.
-#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
-#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
+#define CMakeDemo_VERSION_MAJOR @CMakeDemo_VERSION_MAJOR@
+#define CMakeDemo_VERSION_MINOR @CMakeDemo_VERSION_MINOR@
 
 // Should we use the custom math library?
 #cmakedefine USE_MYMATH

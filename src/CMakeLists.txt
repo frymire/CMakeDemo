@@ -1,9 +1,14 @@
-cmake_minimum_required (VERSION 3.6.2)
-project(CMakeDemo)
 
-# Set variables to represent the project version number.
-set(Tutorial_VERSION_MAJOR 1)
-set(Tutorial_VERSION_MINOR 0)
+
+cmake_minimum_required (VERSION 3.10)
+
+# Initialize the project, and set variables to represent its version 
+# (CMakeDemo_VERSION_MAJOR, CMakeDemo__VERSION_MINOR).
+project(CMakeDemo VERSION 1.2)
+
+# Specify the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Import the CMake check_function_exists macro to check whether this system provides
 # log and exp functions. Run these before the following configure_file command, so 
@@ -16,6 +21,9 @@ check_function_exists(exp HAVE_EXP)
 # can be modified in the CMake GUI. Specifying "ON" here just sets the default.
 option(USE_MYMATH "Use custom math library" ON)
 
+# You could override the user's choice in the GUI like this.
+# set(USE_MYMATH ON)
+
 # Configure a header file to pass CMake settings to the source code.
 configure_file(
   "${PROJECT_SOURCE_DIR}/Config.h.in"
@@ -23,7 +31,7 @@ configure_file(
 )
 
 # Add the binary tree to the search path for include files, so that we will find Config.h.
-include_directories("${PROJECT_BINARY_DIR}")
+include_directories(CMakeDemo PUBLIC "${PROJECT_BINARY_DIR}")
 
 # If the user wants to use the custom math library, add it.
 if (USE_MYMATH)

@@ -42,8 +42,8 @@ double funnySqrt(double x) {
 // function to call. Of course, HAVE_LOG and HAVE_EXP will almost always
 // be true, so iterativeSqrt probably won't ever be called.
 #if defined (HAVE_LOG) && defined (HAVE_EXP)
-//  return logSqrt(x);
-//#else
+  return logSqrt(x);
+#else
   return iterativeSqrt(x);
 #endif
 
